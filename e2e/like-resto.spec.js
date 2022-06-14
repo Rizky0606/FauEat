@@ -1,39 +1,32 @@
-Feature("Like Resto");
+const assert = require('assert');
+
+Feature('Liking Restaurant');
 
 Before(({ I }) => {
-  I.amOnPage("/#/like");
+  I.amOnPage('/#/like');
 });
 
-Scenario("showing empty liked restaurants", ({ I }) => {
-  I.seeElement("#restaurants");
-  I.see(`You don't have any Favorite Cafe or Restaurant`, "#restaurants");
+Scenario('showing empty liked menu restaurant', ({ I }) => {
+  I.dontSeeElement('.rest-item');
 });
 
-Scenario("like and unlike one resto", async ({ I }) => {
-  I.amOnPage("/");
-  I.wait(3);
+Scenario('liking one restaurant', async ({ I }) => {
+  I.dontSeeElement('.rest-item');
+  I.amOnPage('/');
+  I.waitForElement('.rest-item');
+  I.seeElement('.rest-item__content a');
 
-  I.seeElement(".rest-item");
-  I.click(locate(".rest-item a").first());
-  I.wait(3);
+  const firstRestaurant = locate('.rest-item__content a').first();
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  I.click(firstRestaurant);
 
-  I.seeElement("#likeButton");
-  I.click("#likeButton");
-  I.wait(3);
+  I.waitForElement('#likeButton');
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
 
-  I.amOnPage("/#/like");
-  I.wait(3);
+  I.amOnPage('/#/like');
+  I.seeElement('.rest-item');
+  const likedRestaurantTitle = await I.grabTextFrom('.rest-item__content a');
 
-  I.seeElement(".rest-item");
-  I.click(locate(".rest-item a").first());
-  I.wait(3);
-
-  I.seeElement("#likeButton");
-  I.click("#likeButton");
-  I.wait(3);
-
-  I.amOnPage("/#/like");
-  I.wait(3);
-
-  I.see(`You don't have any Favorite Cafe or Restaurant`, "#restaurants");
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
 });

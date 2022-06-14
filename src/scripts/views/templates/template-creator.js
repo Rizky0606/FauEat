@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 
 const createRestDetailTemplate = (restaurant) => `
   <h2 class="rest__title" tabindex="0">${restaurant.name}</h2>
-  <img class="rest__poster" tabindex="0" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
+  <img class="lazyload rest__poster" tabindex="0" data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
   <div class="rest__info">
   <h3>Information</h3>
     <div class="kota" tabindex="0">
@@ -67,7 +67,7 @@ const createRestItemTemplate = (restaurant) => `
         </div>
     </div>
     <div class="rest-item__content">
-        <h3><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a></h3>
+        <h3><a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}" id="btnDetail"</a></h3>
         <p>${restaurant.description}</p>
     </div>
   </div>

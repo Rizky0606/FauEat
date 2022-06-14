@@ -2,6 +2,7 @@ import UrlParser from '../../routes/url-parser';
 import TheRestDbSource from '../../data/faueatdb-source';
 import { createRestDetailTemplate } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
+import FavoriteRestIdb from '../../data/favoriterest-idb';
 
 const Detail = {
   async render() {
@@ -19,6 +20,7 @@ const Detail = {
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRest: FavoriteRestIdb,
       restaurant: {
         id: restaurant.id,
         name: restaurant.name,
