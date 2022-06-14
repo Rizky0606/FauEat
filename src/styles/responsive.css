@@ -1,0 +1,121 @@
+@media screen and (min-width: 400px) {
+    .review {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+    }
+
+    .itemReviwer {
+        padding: 13px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .hero h3 {
+        font-size: 30px;
+    }
+    
+    .hero p {
+        font-size: 25px;
+    }
+
+    .list__review-header {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .app-bar {
+        grid-template-columns: 1fr auto;
+        padding: 8px 32px;
+    }
+
+    .app-bar .app-bar__brand h1 {
+        font-size: 1.5em;
+    }
+
+    .app-bar .app-bar__menu {
+        display: none;
+        min-height: 44px;
+        min-height: 44px;
+    }
+
+    .app-bar .app-bar__navigation {
+        position: static;
+        width: 100%;
+    }
+
+    .app-bar .app-bar__navigation ul li {
+        display: inline-block;
+    }
+
+    .app-bar .app-bar__navigation ul li a {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        margin: 0;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .hero h3 {
+        font-size: 35px;
+    }
+    
+    .hero p {
+        font-size: 30px;
+    }
+
+    .rests {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .rest {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .rest-item__content h3 a{
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .rest .rest__title {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .rest .rest__overview {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .menu {
+        display: contents;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .app-bar .app-bar__brand h1 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .rests {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .rests {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .rests {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
